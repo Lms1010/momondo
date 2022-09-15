@@ -1,0 +1,164 @@
+*{
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+
+  }
+  body {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(33,3,58, 1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  header{
+    width: 95vw;
+    height: 6vh;
+    display: flex;
+    justify-content: end;
+    gap: 1vw;
+    background-color: rgba(33,3,58, 1);
+    padding: 1rem 1rem;
+  }
+  header div {
+    display: flex;
+    width: 100vw;
+  }
+  header img {
+    width: 16vw;
+    heigth: 10vh;
+  }
+  header a {
+    all: unset;
+    color: white;
+    cursor: pointer;
+  }
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 13vh;
+    background-color: rgba(33,3,58, 1);
+    border-right: 1px solid rgba(167,98,234,0.4);
+  }
+
+  nav a {
+    all: unset;
+    color: white;
+    cursor: pointer;
+  }
+  footer {
+    width: 100vw;
+    background-color: rgba(33,3,58, 0.5);
+  }
+
+  form {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 7vw;
+    left: 7vw;
+    width: 90vw;
+    height: 6vh;
+  }
+  
+  form #from_container #from_city {
+    height: 52px;
+    border-radius: 10px;
+    padding: 1vw;
+    border: none;
+  }
+
+  form #from_container #from_result {
+    display: none;
+    width: 20vw;
+    height: 30vh;
+    background: white;
+    border-radius: 2px;
+  }
+
+  form #from_container #from_result .from_city:hover{
+    background: rgba(33,3,58, 0.3);
+  }
+
+  form #from_container #from_result .from_city {
+    display: flex;
+  }
+
+  form #from_container #from_result .from_city div {
+    display: flex;
+    flex-direction: column;
+
+  }
+  form #from_container #from_result .from_city img {
+    pointer-events: none;
+    height: 56px;
+    width: 56px;
+    border-radius: 8px;
+  }
+  form #from_container #from_result .from_city .abr {
+    pointer-events: none;
+    padding-left: 0.3rem;
+  }
+  form #from_container #from_result .from_city .from_city_country {
+    pointer-events: none;
+  }
+
+  form #from_container #from_result .from_city .airport {
+    pointer-events: none;
+    font-size: 0.6rem;
+  }
+
+  /* ///////////////////////////////////////////////////////////// */
+  form #to_container #to_city {
+
+    height: 52px;
+    border-radius: 10px;
+    padding: 1vw;
+    border: none;
+  }
+
+  form #to_container #to_result {
+    display: none;
+    width: 20vw;
+    height: 30vh;
+    background: white;
+    border-radius: 2px;
+  }
+
+  form #to_container #to_result .to_city:hover{
+    background: rgba(33,3,58, 0.3);
+  }
+
+  form #to_container #to_result .to_city {
+    display: flex;
+  }
+
+  form #to_container #to_result .to_city div {
+    display: flex;
+    flex-direction: column;
+
+  }
+  form #to_container #to_result .to_city img {
+    pointer-events: none;
+    height: 56px;
+    width: 56px;
+    border-radius: 8px;
+  }
+  form #to_container #to_result .to_city .abr {
+    pointer-events: none;
+    padding-left: 0.3rem;
+  }
+  form #to_container #to_result .to_city .to_city_country {
+    pointer-events: none;
+  }
+
+  form #to_container #to_result .to_city .airport {
+    pointer-events: none;
+    font-size: 0.6rem;
+  }
+
+  
+
+
+  

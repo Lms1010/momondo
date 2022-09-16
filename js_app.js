@@ -102,14 +102,40 @@ async function getCitiesTo() {
 }
 
 function selectCityFrom() {
-  console.log(event.target.querySelector(".from_city_country").innerText);
   const userChoiceText = event.target.querySelector(".from_city_country").innerText;
   document.querySelector("#from_city").value = userChoiceText;
   document.querySelector("#from_result").style.display = "none";
 }
 function selectCityTo() {
-  console.log(event.target.querySelector(".to_city_country").innerText);
   const userChoiceText = event.target.querySelector(".to_city_country").innerText;
   document.querySelector("#to_city").value = userChoiceText;
   document.querySelector("#to_result").style.display = "none";
 }
+
+function rotate() {
+  const switchSVG = document.querySelector("#switch_city svg");
+
+  if (to_input.value === "") {
+    switchSVG.classList.toggle("flip");
+    switchSVG.classList.remove("flipBack");
+    to_input.value = from_input.value;
+    from_input.value = null;
+  } else if (from_input.value === "") {
+    switchSVG.classList.toggle("flipBack");
+    switchSVG.classList.remove("flip");
+    from_input.value = to_input.value;
+    to_input.value = null;
+  } else if (from_input.value.length && to_input.value.length > 0) {
+    // let fromInputValue = from_input.value;
+    // fromInputValue
+    // console.log(fromInputValue);
+    // fromInputValue.replace(`${from_input.value}`, `${to_input.value}`);
+  }
+}
+
+// function displayNone() {
+//   const fromSVG = document.querySelector("#from_icon svg");
+//   if (!from_input.value === "") {
+//     fromSVG.classList.add(".display_none");
+//   }
+// }

@@ -37,8 +37,49 @@
     all: unset;
     color: white;
     cursor: pointer;
-
   }
+
+
+  header #login_container {
+    display: flex;
+    width: 101.5px;
+    height: 45px;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid #e1d9e8;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 14px;
+  }
+  header #login_container svg {
+    width: 20px;
+    height: 20px;
+  }
+  header #login_container p {
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+  }
+  
+
+
+  header #login_container:hover {
+    background-color: #e1d9e8;
+    
+  }
+  header #login_container:hover p {
+    color: black;
+    
+  }
+  header #login_container:hover svg path {
+    fill: black;  
+  }
+
+
+
+
   nav {
     display: flex;
     flex-direction: column;

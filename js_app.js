@@ -139,3 +139,6 @@ function rotate() {
 //     fromSVG.classList.add(".display_none");
 //   }
 // }
+function display_login() {
+  console.log("lol");
+}

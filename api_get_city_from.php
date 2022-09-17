@@ -16,3 +16,9 @@ try{
     http_response_code(400);
     echo json_encode(['info'=>'upppsss...']);
   }
+
+// if (! $from_city)) {
+//   http_response_code(400);
+//   echo json_encode(['info'=>'Missing search']);
+//   exit();
+// };

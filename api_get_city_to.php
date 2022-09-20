@@ -3,7 +3,7 @@ try{
     $to_city = $_GET['to_city'] ?? 0;
     
     // Connect to the database
-    $db = new PDO('sqlite:'.__DIR__.'/_momondo.db');
+    $db = new PDO('sqlite:'.__DIR__.'/momondo.db');
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $q = $db->prepare('SELECT * FROM table_cities WHERE city_name LIKE :to_city');
     $q->bindValue(':to_city','%'.$to_city.'%');

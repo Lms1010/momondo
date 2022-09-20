@@ -1,6 +1,3 @@
-let from_input = document.querySelector("#from_city");
-let to_input = document.querySelector("#to_city");
-
 function showResultFrom() {
   const userInputFrom = document.querySelector("#from_city");
   const resultFrom = document.querySelector("#from_result");
@@ -33,7 +30,7 @@ function hideResults() {
 async function getCitiesFrom() {
   //sletter alt i div #from_result
   document.querySelector("#from_result").textContent = null;
-  const searchQuery = from_input.value;
+  const searchQuery = document.querySelector("#from_city").value;
   let conn = await fetch("api_get_city_from.php?from_city=" + searchQuery);
   let unsortedData = await conn.json();
   let sortedData = unsortedData.sort((a) => {
@@ -69,7 +66,7 @@ async function getCitiesFrom() {
 async function getCitiesTo() {
   //sletter alt i div #to_result
   document.querySelector("#to_result").textContent = null;
-  const searchQuery = to_input.value;
+  const searchQuery = document.querySelector("#to_city").value;
   let conn = await fetch("api_get_city_to.php?to_city=" + searchQuery);
   let unsortedData = await conn.json();
   let sortedData = unsortedData.sort((a) => {
@@ -114,24 +111,25 @@ function selectCityTo() {
 
 function rotate() {
   const switchSVG = document.querySelector("#switch_city svg");
+  const from_input = document.querySelector("#from_city");
+  const to_input = document.querySelector("#to_city");
 
-  // if (to_input.value === "") {
-  //   switchSVG.classList.toggle("flip");
-  //   switchSVG.classList.remove("flipBack");
-  //   to_input.value = from_input.value;
-  //   from_input.value = null;
-  // } else if (from_input.value === "") {
-  //   switchSVG.classList.toggle("flipBack");
-  //   switchSVG.classList.remove("flip");
-  //   from_input.value = to_input.value;
-  //   to_input.value = null;
-  // } else if (from_input.value.length && to_input.value.length > 0) {
+  if (to_input.value === "") {
+    switchSVG.classList.toggle("flip");
+    switchSVG.classList.remove("flipBack");
+    to_input.value = document.querySelector("#from_city").value;
+    from_input.value = null;
+  } else if (from_input.value === "") {
     switchSVG.classList.toggle("flipBack");
     switchSVG.classList.remove("flip");
-    let temp = to_input.value
-    to_input.value = from_input.value
-    from_input.value = temp
-
+    from_input.value = to_input.value;
+    to_input.value = null;
+  } else if (from_input.value.length && to_input.value.length > 0) {
+    switchSVG.classList.toggle("flipBack");
+    let temp = to_input.value;
+    to_input.value = from_input.value;
+    from_input.value = temp;
+  }
 }
 
 // function displayNone() {
@@ -140,6 +138,48 @@ function rotate() {
 //     fromSVG.classList.add(".display_none");
 //   }
 // }
-function display_login() {
-  console.log("lol");
+function displayLogin() {
+  document.querySelector("#login_container").style.display = "flex";
+  document.querySelector("#overlay").style.display = "block";
+}
+function closeLogin() {
+  document.querySelector("#login_container").style.display = "none";
+  document.querySelector("#overlay").style.display = "none";
+  document.querySelector("#form_sign_in").style.display = "flex";
+  document.querySelector("#form_sign_up").style.display = "none";
+}
+
+async function signup() {
+  const formLogin = document.querySelector("#form_sign_up");
+  let conn = await fetch("/api_signup.php", {
+    method: POST,
+    body: new FormData(formLogin),
+  });
+  if (!conn.ok) {
+    console.log("Bad connection");
+    return;
+  }
+  data = await conn.json();
+
+  console.log(data);
+}
+
+async function signin() {
+  const formLogin = document.querySelector("#form_sign_in");
+  let conn = await fetch("/api_signin.php", {
+    method: POST,
+    body: new FormData(formLogin),
+  });
+  if (!conn.ok) {
+    console.log("Bad connection");
+    return;
+  }
+  data = await conn.json();
+
+  console.log(data);
+}
+
+function displaySignup() {
+  document.querySelector("#form_sign_in").style.display = "none";
+  document.querySelector("#form_sign_up").style.display = "flex";
 }

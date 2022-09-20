@@ -3,11 +3,12 @@ RewriteCond %{REQUEST_FILENAME} !-f
 
 
 
-RewriteRule ^login$ view_login.php [NC,L]
-RewriteRule ^home$ view_home.php [NC,L]
+RewriteRule ^login$         view_login.php [NC,L]
+RewriteRule ^home$          view_home.php [NC,L]
 
-RewriteRule ^app.css$ css_app.css [NC,L]
+RewriteRule ^app.css$       css_app.css [NC,L]
 
-RewriteRule ^app.js$ js_app.js [NC,L]
+RewriteRule ^app.js$        js_app.js [NC,L]
+RewriteRule ^validator.js   js_app.js [NC,L]
 
 

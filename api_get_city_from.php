@@ -21,7 +21,7 @@ try{
     $from_city = $_GET['from_city'];
 
     // Connect to the database
-    $db = new PDO('sqlite:'.__DIR__.'/_momondo.db');
+    $db = new PDO('sqlite:'.__DIR__.'/momondo.db');
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $q = $db->prepare('SELECT * FROM table_cities WHERE city_name LIKE :from_city');
     $q->bindValue(':from_city','%'.$from_city.'%');

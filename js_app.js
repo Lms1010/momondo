@@ -150,33 +150,34 @@ function closeLogin() {
 }
 
 async function signup() {
-  const formLogin = document.querySelector("#form_sign_up");
+  const formSignup = document.querySelector("#form_sign_up");
   let conn = await fetch("/api_signup.php", {
-    method: POST,
-    body: new FormData(formLogin),
+    method: "POST",
+    body: new FormData(formSignup),
   });
   if (!conn.ok) {
     console.log("Bad connection");
     return;
   }
-  data = await conn.json();
+  const data = await conn.json();
 
+  Swal.fire("Good job " + data.message, "You clicked the button!", "success");
   console.log(data);
 }
 
 async function signin() {
   const formLogin = document.querySelector("#form_sign_in");
   let conn = await fetch("/api_signin.php", {
-    method: POST,
+    method: "POST",
     body: new FormData(formLogin),
   });
   if (!conn.ok) {
     console.log("Bad connection");
     return;
   }
-  data = await conn.json();
+  const data = await conn.json();
 
-  console.log(data);
+  console.log(data, "data");
 }
 
 function displaySignup() {

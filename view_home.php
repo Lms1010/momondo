@@ -32,19 +32,19 @@
         <svg id="logo_login" viewBox="0 0 250 38"><defs><linearGradient id="logos806a" x2="0" y2="100%"><stop offset="0" stop-color="#00d7e5"></stop><stop offset="1" stop-color="#0066ae"></stop></linearGradient><linearGradient id="logos806b" x2="0" y2="100%"><stop offset="0" stop-color="#ff30ae"></stop><stop offset="1" stop-color="#d1003a"></stop></linearGradient><linearGradient id="logos806c" x2="0" y2="100%"><stop offset="0" stop-color="#ffba00"></stop><stop offset="1" stop-color="#f02e00"></stop></linearGradient></defs><path fill="url(#logos806a)" d="M23.2 15.5c2.5-2.7 6-4.4 9.9-4.4 8.7 0 13.4 6 13.4 13.4v12.8c0 .3-.3.5-.5.5h-6c-.3 0-.5-.2-.5-.5V24.5c0-4.6-3.1-5.9-6.4-5.9-3.2 0-6.4 1.3-6.4 5.9v12.8c0 .3-.3.5-.5.5h-5.9c-.3 0-.5-.2-.5-.5V24.5c0-4.6-3.1-5.9-6.4-5.9-3.2 0-6.4 1.3-6.4 5.9v12.8c0 .3-.3.5-.5.5h-6c-.3 0-.5-.2-.5-.5V24.5c0-7.4 4.7-13.4 13.3-13.4 4 0 7.5 1.7 9.9 4.4m54.3 9.1c0 7.5-5.2 13.4-14 13.4s-14-5.9-14-13.4c0-7.6 5.2-13.4 14-13.4 8.8-.1 14 5.9 14 13.4zm-6.7 0c0-3.7-2.4-6.8-7.3-6.8-5.2 0-7.3 3.1-7.3 6.8 0 3.7 2.1 6.8 7.3 6.8 5.1-.1 7.3-3.1 7.3-6.8z"></path><path fill="url(#logos806b)" d="M103.8 15.5c2.5-2.7 6-4.4 9.9-4.4 8.7 0 13.4 6 13.4 13.4v12.8c0 .3-.3.5-.5.5h-5.9c-.3 0-.5-.2-.5-.5V24.5c0-4.6-3.1-5.9-6.4-5.9-3.2 0-6.4 1.3-6.4 5.9v12.8c0 .3-.3.5-.5.5H101c-.3 0-.5-.2-.5-.5V24.5c0-4.6-3.1-5.9-6.4-5.9-3.2 0-6.4 1.3-6.4 5.9v12.8c0 .3-.3.5-.5.5h-5.9c-.3 0-.5-.2-.5-.5V24.5c0-7.4 4.7-13.4 13.3-13.4 3.8 0 7.3 1.7 9.7 4.4m54.3 9.1c0 7.5-5.2 13.4-14 13.4s-14-5.9-14-13.4c0-7.6 5.2-13.4 14-13.4 8.7-.1 14 5.9 14 13.4zm-6.7 0c0-3.7-2.3-6.8-7.3-6.8-5.2 0-7.3 3.1-7.3 6.8 0 3.7 2.1 6.8 7.3 6.8 5.1-.1 7.3-3.1 7.3-6.8zm9.8-.1v12.8c0 .3.2.5.5.5h5.9c.3 0 .5-.2.5-.5V24.5c0-4.6 3.1-5.9 6.4-5.9 3.3 0 6.4 1.3 6.4 5.9v12.8c0 .3.2.5.5.5h5.9c.3 0 .5-.2.5-.5V24.5c0-7.4-4.5-13.4-13.4-13.4-8.7 0-13.2 6-13.2 13.4"></path><path fill="url(#logos806c)" d="M218.4 0h-5.9c-.3 0-.5.2-.5.5v13c-1.3-1.2-4.3-2.4-7-2.4-8.8 0-14 5.9-14 13.4s5.2 13.4 14 13.4c8.7 0 14-5.2 14-14.6V.4c-.1-.2-.3-.4-.6-.4zm-13.5 31.3c-5.2 0-7.3-3-7.3-6.8 0-3.7 2.1-6.8 7.3-6.8 4.9 0 7.3 3 7.3 6.8s-2.2 6.8-7.3 6.8zM236 11.1c-8.8 0-14 5.9-14 13.4s5.2 13.4 14 13.4 14-5.9 14-13.4c0-7.4-5.3-13.4-14-13.4zm0 20.2c-5.2 0-7.3-3.1-7.3-6.8 0-3.7 2.1-6.8 7.3-6.8 4.9 0 7.3 3.1 7.3 6.8 0 3.8-2.2 6.8-7.3 6.8z"></path></svg>
         <svg id="exit_button" onclick="closeLogin()" class="dDYU-closeIcon dDYU-mod-theme-default"  viewBox="0 0 200 200"><path d="M168.535 168.535a4.998 4.998 0 0 1-7.07 0L100 107.071l-61.464 61.464a5 5 0 1 1-7.071-7.07L92.929 100L31.464 38.536a5 5 0 1 1 7.071-7.071L100 92.929l61.465-61.464a5 5 0 0 1 7.07 7.071L107.071 100l61.464 61.465a4.998 4.998 0 0 1 0 7.07z"></path></svg>
         <img src="/img/loginIMG.svg" alt="loginIMG.svg">
-        <form id="form_sign_in" action="" onsubmit='validate(signin); return  false' method="POST">
+        <form id="form_sign_in" onsubmit='validate(signin); return  false' >
             <input name="user_email" type="text" placeholder="email" data-validate="email">
-            <input name="user_password" type="password" placeholder="Password"> 
+            <input name="user_password" type="password" placeholder="Password"  data-validate="str" data-min="<?= _USER_PASSWORD_MIN_LEN?>" data-max="<?= _USER_PASSWORD_MAX_LEN?>"> 
             <button>Sign in</button>
             not a user yet?
             <button type="button"onclick="displaySignup()">Sign Up</button>
         </form>
         <form id="form_sign_up" action="" onsubmit='validate(signup); return  false' method="POST">
-            <input name="user_first_name" type="text" placeholder="First Name">
-            <input name="user_last_name" type="text" placeholder="Last name">
-            <input name="user_password" type="password" placeholder="Password"> 
-            <input name="user_password" type="password" placeholder="Password"> 
-            <input name="user_email" type="text" placeholder="Email">
+            <input name="user_first_name" type="text" placeholder="First Name" data-validate="str" data-min="<?= _USER_FIRST_NAME_MIN_LEN?>" data-max="<?= _USER_FIRST_NAME_MAX_LEN?>">
+            <input name="user_last_name" type="text" placeholder="Last name" data-validate="str" data-min="<?= _USER_LAST_NAME_MIN_LEN?>" data-max="<?= _USER_LAST_NAME_MAX_LEN?>">
+            <input name="user_password" type="password" placeholder="Password" data-validate="str" > 
+            <input name="user_confirm_password" type="password" placeholder="Confirm password" > 
+            <input name="user_email" type="text" placeholder="Email" data-validate="email">
             <button>signup</button>
         </form>
 
@@ -128,5 +128,6 @@
     </footer>
     <script src="app.js"></script>
     <script src="validator.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

@@ -41,6 +41,7 @@ function validate(callback) {
         if (element.value != document.querySelector(`[name='${element.getAttribute("data-match-name")}']`, form).value) {
           element.classList.add("validate_error");
           element.style.backgroundColor = validate_error;
+          element.style.borderBlockColor = validate_error;
         }
         break;
     }

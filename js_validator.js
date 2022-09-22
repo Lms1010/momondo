@@ -46,7 +46,7 @@ function validate(callback) {
         break;
     }
   });
-  if (!document.querySelector(".validate_error", form)) {
+  if (!form.querySelector(".validate_error")) {
     callback();
     return;
   }

@@ -17,14 +17,10 @@ $user = [
 if($_POST['user_email'] != $user['email'] || $_POST['user_password'] != $user['password'] ) {
     $error_message = " email or password not correct";
     _respond($error_message, 400);
-
 };
 
 
 session_start();
 $_SESSION['user'] = $user;
-header('Location: view_home.php');
 
-
-
-echo json_encode(["info"=>"you have logged in"]);
+_respond(json_encode($user), 200);

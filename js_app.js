@@ -157,27 +157,31 @@ async function signup() {
   });
   if (!conn.ok) {
     console.log("Bad connection");
+    Swal.fire("Hhmm something went wrong");
     return;
   }
   const data = await conn.json();
-
-  Swal.fire("Good job " + data.message, "You clicked the button!", "success");
   console.log(data);
+  Swal.fire("Good job " + data.user_first_name + ' ' + data.user_last_name, "You have signed up succesfully");
+  closeLogin();
+  
 }
 
 async function signin() {
   const formLogin = document.querySelector("#form_sign_in");
-  let conn = await fetch("/api_signin.php", {
+  const response = await fetch("/api_signin.php", {
     method: "POST",
     body: new FormData(formLogin),
   });
-  if (!conn.ok) {
-    console.log("Bad connection");
+  if (!response.ok) {
+    console.log("Wrong login");
     return;
   }
-  const data = await conn.json();
-
-  console.log(data, "data");
+  const data = await response.json();
+  const user = JSON.parse(data.info)
+  console.log(user)
+  document.querySelector('#welcome_message').innerHTML = 'welcome ' + user.user_name
+  closeLogin()
 }
 
 function displaySignup() {

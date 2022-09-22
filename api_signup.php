@@ -9,6 +9,8 @@ _validate_user_last_name();
 
 
 $user = [
+    'user_first_name'=>$_POST['user_first_name'],
+    'user_last_name'=>$_POST['user_last_name'],
     'email'=>'a@a.com',
     'password'=>'password',
 ];

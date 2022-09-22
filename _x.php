@@ -46,6 +46,7 @@ function _validate_email () {
 function _validate_password() {
     $error_message = 'password not valid';
     if (!isset($_POST['user_password'])) {_respond($error_message,400);}
+    // $_POST['user_password'] = trim($_POST['user_password']);
     if (strlen($_POST['user_password']) < _USER_PASSWORD_MIN_LEN ) {_respond($error_message, 400);}
     if (strlen($_POST['user_password']) > _USER_PASSWORD_MAX_LEN) {_respond($error_message, 400);}
     return $_POST['user_password'];

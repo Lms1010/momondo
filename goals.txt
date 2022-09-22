@@ -1,6 +1,6 @@
 TODO - Multi language page. At least 2 languages. Tip: Use a "dictionary.php" to keep the data
 
-TODO - A user can login agains a hard-coded email and password. Tip: The hard-coded email could be "a@a.com" and the password "password".
+DONE - A user can login agains a hard-coded email and password. Tip: The hard-coded email could be "a@a.com" and the password "password".
 
 TODO - A user can do a fake "signup". Meaning that the system will respond with a success signup if all the data is passed and verified correctly, or the system replies with an error. Tip: Create an API that validates for example the user_name, user_email, user_password, user_confirm_password, etc… and make sure that those values are validated. The response can just display a sweet alert.
 

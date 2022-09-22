@@ -35,15 +35,15 @@
         <form id="form_sign_in" onsubmit='validate(signin); return  false' >
             <input name="user_email" type="text" placeholder="email" data-validate="email">
             <input name="user_password" type="password" placeholder="Password"  data-validate="str" data-min="<?= _USER_PASSWORD_MIN_LEN?>" data-max="<?= _USER_PASSWORD_MAX_LEN?>"> 
-            <button>Sign in</button>
+            <button type="submit">Sign in</button>
             not a user yet?
             <button type="button"onclick="displaySignup()">Sign Up</button>
         </form>
-        <form id="form_sign_up" action="" onsubmit='validate(signup); return  false' method="POST">
+        <form id="form_sign_up" action="" onsubmit='validate(signup); return  false' >
             <input name="user_first_name" type="text" placeholder="First Name" data-validate="str" data-min="<?= _USER_FIRST_NAME_MIN_LEN?>" data-max="<?= _USER_FIRST_NAME_MAX_LEN?>">
             <input name="user_last_name" type="text" placeholder="Last name" data-validate="str" data-min="<?= _USER_LAST_NAME_MIN_LEN?>" data-max="<?= _USER_LAST_NAME_MAX_LEN?>">
-            <input name="user_password" type="password" placeholder="Password" data-validate="str" > 
-            <input name="user_confirm_password" type="password" placeholder="Confirm password" > 
+            <input name="user_password" type="password" placeholder="Password" > 
+            <input name="user_confirm_password" type="password" placeholder="Confirm password"> 
             <input name="user_email" type="text" placeholder="Email" data-validate="email">
             <button>signup</button>
         </form>
@@ -78,6 +78,7 @@
         </a>
     </nav>
     <form id=flight_form>
+        <div id="welcome_message"></div>
         <div id="flight_search">
             <div id="from_container">
                 <input id="from_city"

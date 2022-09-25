@@ -49,7 +49,7 @@
             </div>
 
         </div>
-            <div id="circle_button">
+            <div id="circle_button" onclick="getFlights()">
                 <p>Search</p>
             </div>
 
@@ -110,6 +110,7 @@
         </svg>
         </a>
     </nav>
+    <div id="flight_result"></div>
 
 
 <?php

@@ -55,13 +55,15 @@ function validate(callback) {
 // ##############################
 
 async function emailInuse() {
-  // const form = event.target;
+  const form = document.querySelector("#form_sign_up");
   let error_message = "email already exist";
   let response = await fetch("/api_is_email_available.php", {
     method: "POST",
+    body: new FormData(form),
   });
   if (!response.ok) {
     console.log(error_message);
+    
     return;
   }
   // document.querySelector("#user_email").classList.add(".validate_error");

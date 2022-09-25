@@ -181,11 +181,48 @@ async function signin() {
   const user = JSON.parse(data.info);
   console.log(user);
   document.querySelector("#welcome_message p").innerHTML = "Welcome " + user.user_name + "!" + " Find a flexible flight for your next trip";
-  document.querySelector("#login_button_container p").innerHTML = "Log out";
-  closeLogin();
+  location.reload()
 }
 
 function displaySignup() {
   document.querySelector("#form_sign_in").style.display = "none";
   document.querySelector("#form_sign_up").style.display = "flex";
+}
+
+
+async function getFlights(){
+  const flightResult = document.querySelector('#flight_result')
+  const fromSearchQuery = document.querySelector('#from_city').value.split(',')[0]
+  const toSearchQuery = document.querySelector('#to_city').value.split(',')[0]
+  const response = await fetch(`/api_get_flights.php?from_city=${fromSearchQuery}&to_city=${toSearchQuery}`)
+  if (!response.ok) {
+    console.log("Can't fetch flights");
+    return;
+  }
+  const data = await response.json()
+  let flightBlueprint = `<div class="flight">
+                              <img src="img/airline_logo.png">
+                              <div>
+                              <h4 class="from_city_country">#departure_city#, #departure_country#</h4>
+                              <p class="airport">#departure_airport#</p>
+                              </div>
+                          </div>`;
+  let allCities = "";
+
+  data.forEach((city) => {
+    console.log('city', city)
+    let divFlight = flightBlueprint;
+    divFlight = divFlight.replace("airline_logo.png", city.airline_logo);
+    divFlight = divFlight.replace("#departure_city#", city.departure_city);
+    divFlight = divFlight.replace("#departure_country#", city.departure_country);
+    divFlight = divFlight.replace("#departure_airport#", city.departure_airport);
+    allCities += divFlight;
+  });
+  flightResult.insertAdjacentHTML("afterbegin", allCities);
+}
+
+async function signout() {
+  const response = await fetch('/api_signout.php', { method: 'POST' })
+  if (response.ok) location.reload()
+  else console.log('signout failed')
 }

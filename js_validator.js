@@ -38,10 +38,9 @@ function validate(callback) {
         }
         break;
       case "match":
-        if (element.value != document.querySelector(`[name='${element.getAttribute("data-match-name")}']`, form).value) {
+        if (element.value != form.querySelector('[name="user_password"]').value) {
           element.classList.add("validate_error");
           element.style.backgroundColor = validate_error;
-          element.style.borderBlockColor = validate_error;
         }
         break;
     }
@@ -54,7 +53,17 @@ function validate(callback) {
 }
 
 // ##############################
-function clear_validate_error() {
-  // event.target.classList.remove("validate_error")
-  // event.target.value = ""
+
+async function emailInuse() {
+  // const form = event.target;
+  let error_message = "email already exist";
+  let response = await fetch("/api_is_email_available.php", {
+    method: "POST",
+  });
+  if (!response.ok) {
+    console.log(error_message);
+    return;
+  }
+  // document.querySelector("#user_email").classList.add(".validate_error");
+  console.log("WTF");
 }

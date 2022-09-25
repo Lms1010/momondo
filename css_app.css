@@ -86,7 +86,41 @@
   }
 
 
+  #welcome_message p {
+    display: flex;
+    justify-content: center;
+    color: white;
+  }
+
+  #circle_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3.5vw;
+    height: 3.5vw;
+    background-color: red;
+    color: white;
+    border-radius: 100px;
+    cursor: pointer;
+  }
+
+  #admin_button {
+    all: unset;
+    width: 5vw;
+    height: 5vw;
+    background-color: white;
+    position: absolute;
+    z-index: 99;
+  }
+
+
   #login_container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  #login_container #login_content_container {
     display: none; 
     flex-direction: column;
     position: relative;
@@ -96,23 +130,21 @@
     height: 42.5rem;
     background: white;
     border-radius: 1rem;
-    top: 5rem;
-    left: 44rem;
     z-index: 99;
     padding: var(--padding);
   }
-  #login_container img {
+  #login_container #login_content_container img {
     width: 26.8rem;
     padding-top: 2rem;
   }
-  #login_container #logo_login {
+  #login_container #login_content_container #logo_login {
     width: 9.86rem;
     height: 1.5rem;
     position: absolute;
     top: 1rem;
     left: 1.7rem;
   }
-  #login_container #exit_button {
+  #login_container #login_content_container #exit_button {
     width: 1rem;
     height: 1rem;
     position: absolute;
@@ -121,48 +153,52 @@
     cursor: pointer;
   }
 
-  #login_container #form_sign_in{
+  #login_container #login_content_container #form_sign_in{
     display: flex;
     flex-direction: column;
     gap: 2rem;
   }
-  #login_container #form_sign_in input {
+  #login_container #login_content_container #form_sign_in input {
     all: unset;
     width: 15rem;
   }
-  #login_container #form_sign_in input:active{
+  #login_container #login_content_container #form_sign_in input:active{
     border: none;
     width: 15rem;
   }
-  #login_container #form_sign_in button {
+  #login_container #login_content_container #form_sign_in button {
     background-color:rgba(33,3,58, 0.3);
     border: 0.1rem solid black;
     border-radius: 0.2rem;
   }
-  #login_container #form_sign_in button:hover {
+  #login_container #login_content_container #form_sign_in button:hover {
     background-color:rgba(255, 255, 255, 0.5);
     cursor: pointer;
   }
 
 
-  #login_container #form_sign_up {
+  #login_container #login_content_container #form_sign_up {
     display: none;
     flex-direction: column;
     gap: 2rem;
   }
 
-  #login_container #form_sign_up input {
+  #login_container #login_content_container #form_sign_up input {
     width: 15rem;
   }
-  #login_container #form_sign_up button {
+  #login_container #login_content_container #form_sign_up button {
     background-color:rgba(33,3,58, 0.3);
     border: 0.1rem solid black;
     border-radius: 0.2rem;
   }
-  #login_container #form_sign_up button:hover {
+  #login_container #login_content_container #form_sign_up button:hover {
     background-color:rgba(255, 255, 255, 0.5);
     border: 0.1rem solid black;
     cursor: pointer;
+  }
+
+  #user_first_name_text {
+    display: none;
   }
 
 
@@ -223,7 +259,7 @@
     gap: .5rem;
     background: #0095cc;
     border-radius: 8px;
-    padding: var(--padding);
+    padding: 0.5vw;
 
   }
   
@@ -397,6 +433,13 @@
   background-color: white;
   border: 0.3rem solid red;
 }
+
+
+
+
+
+
+
 /* ANIMATIONS */
   .flip {
     animation: 0.2s 1 flipKF;

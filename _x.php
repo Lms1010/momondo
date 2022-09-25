@@ -8,7 +8,7 @@ define('_TO_FLIGHT_MAX_LEN', 20);
 define('_USER_FIRST_NAME_MIN_LEN', 2);
 define('_USER_FIRST_NAME_MAX_LEN', 15);
 define('_USER_LAST_NAME_MIN_LEN', 2);
-define('_USER_LAST_NAME_MAX_LEN', 15);
+define('_USER_LAST_NAME_MAX_LEN', 20);
 
 define('_USER_PASSWORD_MIN_LEN', 8);
 define('_USER_PASSWORD_MAX_LEN', 15);

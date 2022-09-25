@@ -8,7 +8,7 @@ _validate_email();
 _validate_password();
 
 $user = [
-    'user_name'=>'Adminos',
+    'user_name'=>'Lasse',
     'email'=>'a@a.com',
     'password'=>'password',
 ];

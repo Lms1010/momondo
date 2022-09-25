@@ -139,11 +139,11 @@ function rotate() {
 //   }
 // }
 function displayLogin() {
-  document.querySelector("#login_container").style.display = "flex";
+  document.querySelector("#login_content_container").style.display = "flex";
   document.querySelector("#overlay").style.display = "block";
 }
 function closeLogin() {
-  document.querySelector("#login_container").style.display = "none";
+  document.querySelector("#login_content_container").style.display = "none";
   document.querySelector("#overlay").style.display = "none";
   document.querySelector("#form_sign_in").style.display = "flex";
   document.querySelector("#form_sign_up").style.display = "none";
@@ -157,14 +157,13 @@ async function signup() {
   });
   if (!conn.ok) {
     console.log("Bad connection");
-    Swal.fire("Hhmm something went wrong");
+    document.querySelector("#user_first_name_text").style.display = "block";
     return;
   }
   const data = await conn.json();
   console.log(data);
-  Swal.fire("Good job " + data.user_first_name + ' ' + data.user_last_name, "You have signed up succesfully");
+  Swal.fire("Good job " + data.user_name + " You have signed up succesfully");
   closeLogin();
-  
 }
 
 async function signin() {
@@ -175,13 +174,15 @@ async function signin() {
   });
   if (!response.ok) {
     console.log("Wrong login");
+    document.querySelector("#wrong_user").innerHTML = "Wrong email or password";
     return;
   }
   const data = await response.json();
-  const user = JSON.parse(data.info)
-  console.log(user)
-  document.querySelector('#welcome_message').innerHTML = 'welcome ' + user.user_name
-  closeLogin()
+  const user = JSON.parse(data.info);
+  console.log(user);
+  document.querySelector("#welcome_message p").innerHTML = "Welcome " + user.user_name + "!" + " Find a flexible flight for your next trip";
+  document.querySelector("#login_button_container p").innerHTML = "Log out";
+  closeLogin();
 }
 
 function displaySignup() {

@@ -257,3 +257,7 @@ function uploadImage() {
     body: new FormData(document.querySelector("#frm_image_upload")),
   });
 }
+
+function changeIcon() {
+  document.querySelector("#");
+}

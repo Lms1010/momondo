@@ -84,6 +84,12 @@
   header #login_button_container:hover svg path {
     fill: black;  
   }
+  header #flag {
+    padding-top: 0.5vw;
+  }
+  header #flag img {
+    width: 40px;
+  }
 
 
   #welcome_message p {

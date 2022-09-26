@@ -1,4 +1,5 @@
 <?php
+    $title = "cars";
     require_once __DIR__."/_x.php";
     require_once __DIR__."/comp_header.php";
 

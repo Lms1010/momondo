@@ -4,7 +4,7 @@ RewriteCond %{REQUEST_FILENAME} !-f
 
 
 
-RewriteRule ^home$          view_home.php [NC,L]
+RewriteRule ^flights$       view_home.php [NC,L]
 RewriteRule ^image$         view_image_upload.php [NC,L]
 RewriteRule ^cars$          view_cars.php [NC,L]
 RewriteRule ^rooms$         view_rooms.php [NC,L]

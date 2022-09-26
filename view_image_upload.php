@@ -1,11 +1,12 @@
 <?php
+    $title = "image upload";
     require_once __DIR__."/_x.php";
     require_once __DIR__."/comp_header.php";
 
 
 ?>
-     <?php
-require_once __DIR__.'/comp_hardcoded_content.php';
+<?php
+    require_once __DIR__.'/comp_hardcoded_content.php';
 ?>
 
 
@@ -15,5 +16,5 @@ require_once __DIR__.'/comp_hardcoded_content.php';
     </form>
 
 <?php
-require_once __DIR__.'/comp_footer.php';
+    require_once __DIR__.'/comp_footer.php';
 ?>

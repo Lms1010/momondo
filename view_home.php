@@ -1,6 +1,8 @@
 <?php
+    $title = "Flights";
     require_once __DIR__."/_x.php";
     require_once __DIR__."/comp_header.php";
+    require_once __DIR__."/dictionary.php";
 
 ?>
     <form id=flight_form>
@@ -54,7 +56,7 @@
 
     </form>
     <div id="welcome_message">
-        <p>Welcome! Find a flexible flight for you next trip</p>
+        <p><?= $dictionary['en_welcome_title'];?></p>
     </div>
 
     <div id="flight_result"></div>

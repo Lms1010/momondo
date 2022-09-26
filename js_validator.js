@@ -68,6 +68,4 @@ async function emailInuse() {
 
     return;
   }
-  // document.querySelector("#user_email").classList.add(".validate_error");
-  console.log("WTF");
 }

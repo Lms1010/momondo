@@ -507,12 +507,13 @@
   align-content: center;
   position: absolute;
   top: 20vw;
+  pointer-events: none;
 }
 
 #content div {
-  border: 2px solid purple;
-  width: 10vw;
-  height: 8vw;
+  border: 1px solid purple;
+  width: 15vw;
+  height: 12vw;
   border-radius: 8px;
   padding: var(--padding);
 }

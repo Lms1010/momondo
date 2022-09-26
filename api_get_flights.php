@@ -13,7 +13,7 @@ try{
     // Connect to the database
     $db = new PDO('sqlite:'.__DIR__.'/momondo.db');
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $q = $db->prepare('SELECT * FROM table_flights WHERE departure_city LIKE :from_city AND arrival_city LIKE :to_city' );
+    $q = $db->prepare('SELECT * FROM table_flights WHERE departure_city LIKE :from_city AND arrival_city LIKE :to_city LIMIT 10' );
     $q->bindValue(':from_city','%'.$from_city.'%');
     $q->bindValue(':to_city','%'.$to_city.'%');
     $q->execute();

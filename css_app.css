@@ -106,11 +106,14 @@
 
   #admin_button {
     all: unset;
-    width: 5vw;
-    height: 5vw;
+    width: 4vw;
+    height: 1vw;
     background-color: white;
     position: absolute;
     z-index: 99;
+    text-align: center;
+    cursor: pointer;
+    display: none;
   }
 
 
@@ -196,10 +199,11 @@
     border: 0.1rem solid black;
     cursor: pointer;
   }
-
-  #user_first_name_text {
+  #login_container #login_content_container #form_sign_up #email_taken {
     display: none;
   }
+
+
 
 
 
@@ -226,20 +230,26 @@
     border-radius: 8px;
     padding: var(--padding);
   }
-  /* #line {
-    position: absolute;
-    width: 0.5vw;
-    height: 100vh;
-    background: rgba(167,98,234,0.4);;
-    top: 0;
-    left: 4vw;
-  } */
+
 
   nav a {
     color: white;
     cursor: pointer;
     display: flex;
   }
+
+  #nav_login svg{
+    height: 24px;
+    width: 24px;
+  }
+  #nav_login:hover{
+    background-color: #e1d9e8;
+    border-radius: 8px;
+    padding: var(--padding);
+    cursor: pointer;
+  }
+
+
   footer {
     width: 100vw;
     background-color: rgba(33,3,58, 0.5);
@@ -436,7 +446,76 @@
 
 
 
+#flight_result {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 20vw;
+  left: 30vw;
+  width: 41vw;
+  background: white;
+  border-radius: 8px;
+  gap: 1vw;
 
+
+
+}
+#flight_result .flight{
+  display: flex;
+  border-bottom: 1px solid black;
+}
+
+#flight_result .flight .airline_logo {
+  width: 12vw;
+  height: 3vw;
+  padding-left: 2vw;
+}
+#flight_result .flight #trash_container {
+  width: 20vw;
+  display: flex;
+  justify-content: end;
+}
+
+#flight_result .flight #trash_container .trash {
+  width: 3vw;
+  display: none;
+}
+#flight_result .flight #trash_container .trash.visible {
+  width: 3vw;
+  display: block;
+}
+
+
+#frm_image_upload {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 10vw;
+  left: 40vw;
+  color: white;
+}
+
+
+
+#content {
+  display: flex;
+  color: white;
+  gap: 1vw;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  position: absolute;
+  top: 20vw;
+}
+
+#content div {
+  border: 2px solid purple;
+  width: 10vw;
+  height: 8vw;
+  border-radius: 8px;
+  padding: var(--padding);
+}
 
 
 

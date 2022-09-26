@@ -63,7 +63,9 @@ async function emailInuse() {
   });
   if (!response.ok) {
     console.log(error_message);
-    
+    form.querySelector("#email_taken").style.display = "block";
+    form.querySelector("#user_email").classList.add("validate_error");
+
     return;
   }
   // document.querySelector("#user_email").classList.add(".validate_error");

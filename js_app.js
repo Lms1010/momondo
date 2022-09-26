@@ -1,3 +1,5 @@
+if (user) document.querySelector("#admin_button").style.display = "block";
+
 function showResultFrom() {
   const userInputFrom = document.querySelector("#from_city");
   const resultFrom = document.querySelector("#from_result");
@@ -179,9 +181,8 @@ async function signin() {
   }
   const data = await response.json();
   const user = JSON.parse(data.info);
-  console.log(user);
-  document.querySelector("#welcome_message p").innerHTML = "Welcome " + user.user_name + "!" + " Find a flexible flight for your next trip";
-  location.reload()
+
+  location.reload();
 }
 
 function displaySignup() {
@@ -189,40 +190,70 @@ function displaySignup() {
   document.querySelector("#form_sign_up").style.display = "flex";
 }
 
-
-async function getFlights(){
-  const flightResult = document.querySelector('#flight_result')
-  const fromSearchQuery = document.querySelector('#from_city').value.split(',')[0]
-  const toSearchQuery = document.querySelector('#to_city').value.split(',')[0]
-  const response = await fetch(`/api_get_flights.php?from_city=${fromSearchQuery}&to_city=${toSearchQuery}`)
+async function getFlights() {
+  const flightResult = document.querySelector("#flight_result");
+  const fromSearchQuery = document.querySelector("#from_city").value.split(",")[0];
+  const toSearchQuery = document.querySelector("#to_city").value.split(",")[0];
+  document.querySelector("#content").style.display = "none";
+  const response = await fetch(`/api_get_flights.php?from_city=${fromSearchQuery}&to_city=${toSearchQuery}`);
   if (!response.ok) {
     console.log("Can't fetch flights");
     return;
   }
-  const data = await response.json()
+  const data = await response.json();
+  console.log("user", user);
   let flightBlueprint = `<div class="flight">
-                              <img src="img/airline_logo.png">
+                              <img class="airline_logo" src="img/airline_logo.png">
                               <div>
-                              <h4 class="from_city_country">#departure_city#, #departure_country#</h4>
-                              <p class="airport">#departure_airport#</p>
+                                <h4 class="from_city_country">#departure_city#, #departure_country#</h4>
+                                <p class="airport">#departure_airport#</p>
+                                <p>#departure_date#</p>
+                                <p>#departure_time#</p>
+                                <h4>#arrival_city#, #arrival_country#</h4>
+                                <p>#arrival_airport#</p>
+                                <p>#departure_landing_time#</p>
+                              </div>
+                              <div id="trash_container">
+                                <img class="trash" src="img/trash-solid.svg" ></img>
                               </div>
                           </div>`;
   let allCities = "";
 
   data.forEach((city) => {
-    console.log('city', city)
+    console.log("city", city);
     let divFlight = flightBlueprint;
     divFlight = divFlight.replace("airline_logo.png", city.airline_logo);
     divFlight = divFlight.replace("#departure_city#", city.departure_city);
     divFlight = divFlight.replace("#departure_country#", city.departure_country);
     divFlight = divFlight.replace("#departure_airport#", city.departure_airport);
+    divFlight = divFlight.replace("#departure_date#", city.departure_date);
+    divFlight = divFlight.replace("#departure_time#", city.departure_time);
+    divFlight = divFlight.replace("#arrival_city#", city.arrival_city);
+    divFlight = divFlight.replace("#arrival_airport#", city.arrival_airport);
+    divFlight = divFlight.replace("#arrival_country#", city.arrival_country);
+    divFlight = divFlight.replace("#departure_landing_time#", city.departure_landing_time);
+
     allCities += divFlight;
   });
   flightResult.insertAdjacentHTML("afterbegin", allCities);
 }
 
 async function signout() {
-  const response = await fetch('/api_signout.php', { method: 'POST' })
-  if (response.ok) location.reload()
-  else console.log('signout failed')
+  const response = await fetch("/api_signout.php", { method: "POST" });
+  if (response.ok) {
+    location.reload();
+  } else console.log("signout failed");
+}
+
+function showTrash() {
+  document.querySelectorAll("#trash_container img").forEach((element) => {
+    element.classList.add("visible");
+  });
+}
+
+function uploadImage() {
+  fetch("api_upload_image.php", {
+    method: "POST",
+    body: new FormData(document.querySelector("#frm_image_upload")),
+  });
 }

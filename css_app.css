@@ -38,8 +38,9 @@
   header #logo_container {
     display: flex;
     width: 80vw;
+    position: absolute;
   }
-  header #logo_container img {
+  header #logo_container svg {
     width: 130px;
     height: 20px;
   }
@@ -53,7 +54,7 @@
 
   header #login_button_container {
     display: flex;
-    width: 101.5px;
+    width: 110px;
     height: 45px;
     justify-content: center;
     align-items: center;
@@ -96,15 +97,18 @@
     display: flex;
     justify-content: center;
     color: white;
+    position: relative;
+    top: 2vw;
+    pointer-events: none;
   }
 
   #circle_button {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 3.5vw;
-    height: 3.5vw;
-    background-color: red;
+    width: 5vw;
+    background: rgb(252,70,107);
+    background: linear-gradient(90deg, rgba(252,70,107,1) 0%, rgba(151,63,251,1) 100%);
     color: white;
     border-radius: 100px;
     cursor: pointer;
@@ -113,7 +117,7 @@
   #admin_button {
     all: unset;
     width: 4vw;
-    height: 1vw;
+    height: 2vw;
     background-color: white;
     position: absolute;
     z-index: 99;
@@ -318,6 +322,7 @@
     top: calc(52px + .5rem);
     left: -.5rem;
     padding: var(--padding);
+    z-index: 99;
     
   }
 
@@ -378,6 +383,7 @@
     position: absolute;
     top: calc(52px + 0.5rem);
     padding: var(--padding);
+    z-index: 99;
   }
 
   #flight_form #flight_search #to_container #to_result .to_city:hover{
@@ -446,7 +452,6 @@
 
 
 .validate_error {
-  background-color: white;
   border: 0.3rem solid red;
 }
 
@@ -477,10 +482,18 @@
   padding-left: 2vw;
 }
 #flight_result .flight #trash_container {
-  width: 20vw;
-  display: flex;
+  all: unset;
+  display: none;
   justify-content: end;
+  align-items: center;
+  padding: var(--padding);
+  cursor: pointer;
 }
+
+#flight_result .flight #flight_info{
+  width: 25vw;
+}
+
 
 #flight_result .flight #trash_container .trash {
   width: 3vw;
@@ -489,6 +502,7 @@
 #flight_result .flight #trash_container .trash.visible {
   width: 3vw;
   display: block;
+  
 }
 
 
@@ -525,6 +539,9 @@
 }
 
 
+#languages {
+  z-index: 999;
+}
 
 /* ANIMATIONS */
   .flip {

@@ -3,7 +3,6 @@
     require_once __DIR__."/_x.php";
     require_once __DIR__."/comp_header.php";
     require_once __DIR__."/dictionary.php";
-
 ?>
     <form id=flight_form>
         <div id="flight_search">
@@ -11,7 +10,7 @@
                 <input id="from_city"
                     name="from_city" 
                     type="text" 
-                    placeholder="From?" 
+                    placeholder= <?= $dictionary[$_SESSION['lang'].'_from_placeholder'];?> 
                     maxlength= <?= _FROM_FLIGHT_MAX_LEN?>
                     minlength= <?= _FROM_FLIGHT_MIN_LEN?>
                     oninput="showResultFrom()"
@@ -33,7 +32,7 @@
                     <input id="to_city"
                         name="to_city" 
                         type="text" 
-                        placeholder="To?" 
+                        placeholder=<?= $dictionary[$_SESSION['lang'].'_to_placeholder'];?>  
                         maxlength= <?= _TO_FLIGHT_MAX_LEN?>
                         minlength= <?= _TO_FLIGHT_MIN_LEN?>
                         oninput="showResultTo()"
@@ -51,12 +50,12 @@
 
         </div>
             <div id="circle_button" onclick="getFlights()">
-                <p>Search</p>
+                <p><?= $dictionary[$_SESSION['lang'].'_search'];?> </p>
             </div>
 
     </form>
     <div id="welcome_message">
-        <p><?= $dictionary['en_welcome_title'];?></p>
+        <p><?= $dictionary[$_SESSION['lang'].'_welcome_title'];?></p>
     </div>
 
     <div id="flight_result"></div>

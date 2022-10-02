@@ -202,9 +202,10 @@ async function getFlights() {
   }
   const data = await response.json();
   console.log("user", user);
-  let flightBlueprint = `<div class="flight">
+  let flightBlueprint = `<form class="flight">
+                              <input name="flight_id" class="flight-id" style="display:none" value="#flight_id#">
                               <img class="airline_logo" src="img/airline_logo.png">
-                              <div>
+                              <div id="flight_info">
                                 <h4 class="from_city_country">#departure_city#, #departure_country#</h4>
                                 <p class="airport">#departure_airport#</p>
                                 <p>#departure_date#</p>
@@ -213,16 +214,18 @@ async function getFlights() {
                                 <p>#arrival_airport#</p>
                                 <p>#departure_landing_time#</p>
                               </div>
-                              <div id="trash_container">
-                                <img class="trash" src="img/trash-solid.svg" ></img>
-                              </div>
-                          </div>`;
+                              <button type="button" onclick="deleteFlights()" id="trash_container">
+                              🗑️
+                              </button>
+
+                          </form>`;
   let allCities = "";
 
   data.forEach((city) => {
     console.log("city", city);
     let divFlight = flightBlueprint;
     divFlight = divFlight.replace("airline_logo.png", city.airline_logo);
+    divFlight = divFlight.replace("#flight_id#", city.flight_id);
     divFlight = divFlight.replace("#departure_city#", city.departure_city);
     divFlight = divFlight.replace("#departure_country#", city.departure_country);
     divFlight = divFlight.replace("#departure_airport#", city.departure_airport);
@@ -246,8 +249,8 @@ async function signout() {
 }
 
 function showTrash() {
-  document.querySelectorAll("#trash_container img").forEach((element) => {
-    element.classList.add("visible");
+  document.querySelectorAll("#trash_container").forEach((element) => {
+    element.style.display = "flex";
   });
 }
 
@@ -260,4 +263,22 @@ function uploadImage() {
 
 function changeIcon() {
   document.querySelector("#");
+}
+
+
+async function deleteFlights() {
+  const flight = event.target.form
+  console.log(flight, "flight")
+  const response = await fetch('api_delete_flights.php', {
+    method: "POST",
+    body: new FormData(flight)
+  })
+  const data = await response.json()
+  if (!response.ok) {
+    console.log(data, 'datadårlig')
+    return;
+  }
+  console.log(data, 'datagod')
+  flight.remove()
+
 }
